@@ -4,6 +4,21 @@ echo "Welcome to the guessing game!"
 #Doesn't include directories
 nfiles=$(ls -p | grep -v / | wc -l)
 
+#Function that checks whether response and nfiles match
+function check-match {
+	if [[ $1 -eq $2 ]]
+	then
+		echo "You guessed correctly"
+		count=$count+1
+	elif [[ $1 -gt $2 ]]
+	then
+		echo "Your guess was too high!"
+	elif [[ $1 -lt $2 ]]
+	then
+		echo "Your guess was too low!"
+	fi
+}
+
 #initiate while loop
 #Will need to keep running the loop until the guess == NFiles
 count=0
@@ -12,24 +27,6 @@ do
 	#Prompt user to enter their guess
 	echo "Guess the number of files in this directory:"
 	read response
-	if  [[ $response == $nfiles ]]
-	then
-		echo "You guessed correctly!"
-		count=$count+1
-	else
-		if [[ $response -lt $nfiles ]]
-		then
-			echo "Your guess was too low!"
-		else
-			echo "Your guess was too high!"
-		fi
-	fi
+	check-match $response $nfiles
 done
-
-	#Save their guess
-	
-	#Check if guess == NFiles
-
-	#If not: keep count that keeps while loop running
-	#If yes:  echo  that they guessed it  + break loop
 
