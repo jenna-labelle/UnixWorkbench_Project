@@ -2,4 +2,4 @@
 ## A Coursera Project
 
 Number of lines in guessing game program:
-35
+32
