@@ -8,7 +8,7 @@ nfiles=$(ls -p | grep -v / | wc -l)
 function check-match {
 	if [[ $1 -eq $2 ]]
 	then
-		echo "You guessed correctly"
+		echo "Congrats! You guessed correctly."
 		count=$count+1
 	elif [[ $1 -gt $2 ]]
 	then
